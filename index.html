@@ -2,97 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Login Page</title>
+  <title>Login - Paramount Textile</title>
   <style>
     body {
-      background-image: url('https://images.unsplash.com/photo-1614436165696-cda0b37483c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-      font-family: Arial, sans-serif;
-      height: 100vh;
       margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('4e9a6707-0df7-43be-a942-820a06126d7f.png'); /* Your image file */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: white;
     }
 
     .login-box {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 30px 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
       text-align: center;
-      width: 300px;
+      width: 350px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
     }
 
-    h2 {
-      margin-bottom: 20px;
-      color: #333;
+    .login-box h2 {
+      margin-bottom: 25px;
+      color: #ffffff;
     }
 
-    input {
+    input[type="text"], input[type="password"] {
       padding: 10px;
       width: 90%;
-      margin: 10px 0;
-      border-radius: 5px;
-      border: 1px solid #aaa;
-      font-size: 16px;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
       border: none;
       border-radius: 5px;
+      margin-bottom: 15px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      background-color: #2196F3;
+      color: white;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 16px;
     }
 
-    button:hover {
-      background-color: #0056b3;
-    }
-
-    .error {
-      color: red;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 400px) {
-      .login-box {
-        width: 90%;
-        padding: 20px;
-      }
+    input[type="submit"]:hover {
+      background-color: #0d8ddb;
     }
   </style>
 </head>
 <body>
-
   <div class="login-box">
-    <h2>Login</h2>
-    <form onsubmit="return checkLogin()">
-      <input type="text" id="username" placeholder="Username" required><br>
-      <input type="password" id="password" placeholder="Password" required><br>
-      <button type="submit">Login</button>
-      <p class="error" id="error-msg"></p>
+    <h2>Paramount KPI Login</h2>
+    <form onsubmit="return checkLogin();">
+      <input type="text" id="username" placeholder="Enter Username" required><br>
+      <input type="password" id="password" placeholder="Enter Password" required><br>
+      <input type="submit" value="Login">
     </form>
   </div>
 
   <script>
     function checkLogin() {
-      var password = document.getElementById("password").value;
-      if (password === "9702") {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (username === "PTL" && password === "9702") {
         window.location.href = "dashboard.html";
-        return false;
       } else {
-        document.getElementById("error-msg").innerText = "Incorrect password. Try again.";
-        return false;
+        alert("Invalid username or password!");
       }
+      return false;
     }
   </script>
-
 </body>
 </html>
